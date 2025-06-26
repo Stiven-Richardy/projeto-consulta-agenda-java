@@ -17,11 +17,13 @@ Este projeto foi desenvolvido como parte da disciplina de **Linguagem de Program
 ## 🗂️ Estrutura do Projeto
 
 ```
-📁 consulta-agendada/
-├── 📄 Data.java
-├── 📄 Hora.java
-├── 📄 ConsultaAgendada.java
-├── 📄 Main.java
+📁 projeto-consulta-agendada-java/
+├── 📁 consulta-agendada/
+    ├── 📄 Data.java
+    ├── 📄 Hora.java
+    ├── 📄 ConsultaAgendada.java
+    ├── 📄 Main.java
+├── 📄 .gitignore
 └── 📄 README.md
 ```
 
@@ -34,15 +36,20 @@ git clone https://github.com/Stiven-Richardy/projeto-consulta-agenda-java.git
 
 2. Acesse a pasta do projeto:
 ```bash
+cd projeto-consulta-agendada-java
+```
+
+3. Acesse a principal do projeto:
+```bash
 cd consulta-agendada
 ```
 
-3. Compile os arquivos:
+4. Compile os arquivos:
 ```bash
 javac Data.java Hora.java ConsultaAgendada.java Main.java
 ```
 
-4. Execute o programa:
+5. Execute o programa:
 ```bash
 java Main
 ```
