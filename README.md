@@ -47,22 +47,6 @@ javac Data.java Hora.java ConsultaAgendada.java Main.java
 java Main
 ```
 
-## ✅ Funcionalidades Implementadas
-
-- Criação de objetos da classe `ConsultaAgendada` com diferentes construtores
-- Alteração de data, hora, nome do paciente e nome do médico via parâmetros ou entrada pelo usuário
-- Acompanhamento da quantidade de consultas agendadas (atributo estático)
-- Impressão formatada de data (`dd/mm/aa`) e hora (`hh:mm:ss`)
-
-## 🧪 Testes Realizados (Exercício 03)
-
-- Instanciado o objeto `p1` com dados completos via construtor com parâmetros
-- Exibidas todas as propriedades de `p1`
-- Instanciado o objeto `p2` com construtor padrão (sem parâmetros)
-- Alteradas as propriedades de `p1` com métodos de entrada de dados
-- Exibidas novamente as propriedades de `p1`
-- Exibido o total de consultas agendadas
-
 ## 👨‍🏫 Autores
 
 - **Stiven Richardy Silva Rodrigues**  
