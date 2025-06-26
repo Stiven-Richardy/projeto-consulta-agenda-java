@@ -17,11 +17,13 @@ Este projeto foi desenvolvido como parte da disciplina de **Linguagem de Program
 ## 🗂️ Estrutura do Projeto
 
 ```
-📁 consulta-agendada/
-├── 📄 Data.java
-├── 📄 Hora.java
-├── 📄 ConsultaAgendada.java
-├── 📄 Main.java
+📁 projeto-consulta-agendada-java/
+├── 📁 consulta-agendada/
+    ├── 📄 Data.java
+    ├── 📄 Hora.java
+    ├── 📄 ConsultaAgendada.java
+    ├── 📄 Main.java
+├── 📄 .gitignore
 └── 📄 README.md
 ```
 
