@@ -12,50 +12,53 @@ import java.util.InputMismatchException;
 import java.text.DateFormat;
 
 public class Data {
+    //Atributos
     private int dia;
     private int mes;
     private int ano;
     private Scanner ler = new Scanner(System.in);
 
+    //Métodos construtores
     public Data() {
-        entraDia();
-        entraMes();
-        entraAno();
+        setDia();
+        setMes();
+        setAno();
     }
 
     public Data(int dia, int mes, int ano) {
-        entraDia(dia);
-        entraMes(mes);
-        entraAno(ano);
+        setDia(dia);
+        setMes(mes);
+        setAno(ano);
     }
 
-    public void entraDia(int dia) {
-            try {
-                if (dia < 1 || dia > 31) {
-                    System.out.println("Dia invalido. Deve estar entre 1 e 31.");
-                } else {
-                    this.dia = dia;
-                }
-            } catch (InputMismatchException error) {
-                    System.out.println("Numero inteiro invalido.");
+    //Setters
+    public void setDia(int dia) {
+        try {
+            if (dia < 1 || dia > 31) {
+                System.out.println("Dia invalido. Deve estar entre 1 e 31.");
+            } else {
+                this.dia = dia;
             }
-    }
-
-    public void entraMes(int mes) {
-            try {
-                if (mes < 1 || mes > 12) {
-                    System.out.println("Mes invalido. Deve estar entre 1 e 12.");
-                } else if ((mes == 2 && dia > 29) || (mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) {
-                    System.out.println("Mes invalido para o dia " + dia);
-                } else {
-                    this.mes = mes;
-                }
-            } catch (InputMismatchException error) {
+        } catch (InputMismatchException error) {
                 System.out.println("Numero inteiro invalido.");
-            }
+        }
     }
 
-    public void entraAno(int ano) {
+    public void setMes(int mes) {
+        try {
+            if (mes < 1 || mes > 12) {
+                System.out.println("Mes invalido. Deve estar entre 1 e 12.");
+            } else if ((mes == 2 && dia > 29) || (mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) {
+                System.out.println("Mes invalido para o dia " + dia);
+            } else {
+                this.mes = mes;
+            }
+        } catch (InputMismatchException error) {
+            System.out.println("Numero inteiro invalido.");
+        }
+    }
+
+    public void setAno(int ano) {
             try {
                 if (ano < 1900 || ano > 2100) {
                     System.out.println("Ano invalido. Deve estar entre 1900 e 2100.");
@@ -69,7 +72,7 @@ public class Data {
             } 
     }
 
-    public void entraDia() {
+    public void setDia() {
         int dia;
         boolean verif = true;
 
@@ -90,7 +93,7 @@ public class Data {
         }
     }
 
-    public void entraMes() {
+    public void setMes() {
         int mes;
         boolean verif = true;
 
@@ -113,7 +116,7 @@ public class Data {
         }
     }
 
-    public void entraAno() {
+    public void setAno() {
         int ano;
         boolean verif = true;
 
@@ -136,24 +139,22 @@ public class Data {
         }
     }
 
-    public int retDia() {
+    //Getters
+    public int getDia() {
         return this.dia;
     }
 
-    public int retMes() {
+    public int getMes() {
         return this.mes;
     }
 
-    public int retAno() {
+    public int getAno() {
         return this.ano;
     }
 
-    public void mostra1() {
-	System.out.println("--------------------");
-	System.out.println("| Dia | Mes | Ano  |");
-	System.out.println("--------------------");
-        System.out.println(String.format("|  %02d |  %02d | %04d |", this.dia, this.mes, this.ano));
-	System.out.println("--------------------");
+    //Métodos
+    public String getData1() {
+        return String.format("|  %02d |  %02d | %04d |", this.dia, this.mes, this.ano);
     }
 
     public String mostra2() {

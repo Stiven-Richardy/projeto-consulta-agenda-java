@@ -6,48 +6,127 @@ INTEGRANTES:
 -> Guilherme Mendes de Sousa
 */
 
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
 public class Hora {
     //Atributos
     private int hora;
     private int minuto;
     private int segundo;
+    private Scanner ler = new Scanner(System.in);
     
     //Métodos construtores
     public Hora() {
-        this.setHora();
-        this.setMinuto();
-        this.setSegundo();
+        setHora();
+        setMinuto();
+        setSegundo();
     }
 
     public Hora(int hora, int minuto, int segundo) {
-        this.setHora(hora);
-        this.setMinuto(minuto);
-        this.setSegundo(segundo);
+        setHora(hora);
+        setMinuto(minuto);
+        setSegundo(segundo);
     }
 
     //Setters
     public void setHora(int hora) {
-        this.hora = hora;
+        try {
+            if (hora < 0 || hora > 23) {
+                System.out.println("Hora invalida. Deve estar entre 0 e 23.");
+            } else {
+                this.hora = hora;
+            }
+        } catch (InputMismatchException error) {
+            System.out.println("Digite um numero inteiro valido.");
+        }
     }
 
     public void setMinuto(int minuto) {
-        this.minuto = minuto;
+        try {
+            if (minuto < 0 || minuto > 59) {
+                System.out.println("Hora invalida. Deve estar entre 0 e 59.");
+            } else {
+                this.minuto = minuto;
+            }
+        } catch (InputMismatchException error) {
+            System.out.println("Digite um numero inteiro valido.");
+        }
     }
 
     public void setSegundo(int segundo) {
-        this.segundo = segundo;
+        try {
+            if (segundo < 0 || segundo > 59) {
+                System.out.println("Hora invalida. Deve estar entre 0 e 59.");
+            } else {
+                this.segundo = segundo;
+            }
+        } catch (InputMismatchException error) {
+            System.out.println("Digite um numero inteiro valido.");
+        }
     }
 
     public void setHora() {
-        this.hora = 0;
+        int hora = 0;
+        boolean verif = true;
+
+		while(verif) {
+			try {
+				System.out.print("Digite a hora (0-23): ");
+				hora = ler.nextInt();
+				if (hora < 0 || hora > 23) {
+					System.out.println("Hora invalida. Deve estar entre 0 e 23.");
+				} else {
+					this.hora = hora;
+                    verif = false;
+				}
+			} catch (InputMismatchException error) {
+				System.out.println("Digite um numero inteiro valido.");
+				ler.next();
+			}
+		}
     }
 
     public void setMinuto() {
-        this.minuto = 0;
+        int minuto = 0;
+        boolean verif = true;
+
+		while(verif) {
+			try {
+				System.out.print("Digite o minuto (0-59): ");
+				minuto = ler.nextInt();
+				if (minuto < 0 || minuto > 59) {
+					System.out.println("Hora invalida. Deve estar entre 0 e 59.");
+				} else {
+					this.minuto = minuto;
+                    verif = false;
+				}
+			} catch (InputMismatchException error) {
+				System.out.println("Digite um numero inteiro valido.");
+				ler.next();
+			}
+		}
     }
 
     public void setSegundo() {
-        this.segundo = 0;
+        int segundo = 0;
+        boolean verif = true;
+
+		while(verif) {
+			try {
+				System.out.print("Digite o segundo (0-59): ");
+				segundo = ler.nextInt();
+				if (segundo < 0 || segundo > 59) {
+					System.out.println("Hora invalida. Deve estar entre 0 e 59.");
+				} else {
+					this.segundo = segundo;
+                    verif = false;
+				}
+			} catch (InputMismatchException error) {
+				System.out.println("Digite um numero inteiro valido.");
+				ler.next();
+			}
+		}
     }
 
     //Getters
