@@ -6,9 +6,6 @@ INTEGRANTES:
 -> Guilherme Mendes de Sousa
 */
 
-import java.util.Scanner;
-import java.util.InputMismatchException;
-
 public class Main {
     public static void main (String[] args) {
         // Instanciando o objeto p1 com o construtor ConsultaAgendada(int h, int mi, int s, int d, int m, int a, String p, String me)
