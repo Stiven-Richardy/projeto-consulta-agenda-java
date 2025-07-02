@@ -8,6 +8,7 @@ INTEGRANTES:
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.time.LocalDate;
 
 public class ConsultaAgendada {
     // Atributos
@@ -49,7 +50,26 @@ public class ConsultaAgendada {
     }
 
     public void setData() {
-        this.data = new Data();
+        LocalDate hoje = LocalDate.now();
+        Data dataInformada;
+
+        while (true) {
+            dataInformada = new Data();
+
+            try {
+                LocalDate dataAgendamento = LocalDate.of(dataInformada.getAno(), dataInformada.getMes(), dataInformada.getDia());
+
+                if (dataAgendamento.isBefore(hoje) || dataAgendamento.isEqual(hoje)) {
+                    System.out.println("[ERRO] A data da consulta nao pode ser anterior ou igual a data atual. Tente novamente.");
+                } else {
+                    break;
+                }
+            } catch (java.time.DateTimeException e) {
+                System.out.println("[ERRO] A data informada eh invalida (" + dataInformada.getData() + "). Tente novamente.");
+            }
+        }
+
+        this.data = dataInformada;
     }
 
     public void setHora(int a, int b, int c) {
@@ -63,12 +83,12 @@ public class ConsultaAgendada {
     public void setNomePaciente(String p) {
         try {
             if (p.length() < 3) {
-                System.out.println("Nome invalido.");
+                System.out.println("[ERRO] Nome invalido.");
             } else {
                 this.nomePaciente = p;
             }
         } catch (InputMismatchException error) {
-            System.out.println("Digite um nome valido.");
+            System.out.println("[ERRO] Digite um nome valido.");
         }
     }
 
@@ -81,13 +101,13 @@ public class ConsultaAgendada {
                 System.out.print("Digite o nome do paciente: ");
                 paciente = ler.nextLine();
                 if (paciente.length() < 3) {
-                    System.out.println("Nome invalido.");
+                    System.out.println("[ERRO] Nome invalido.");
                 } else {
                     this.nomePaciente = paciente;
                     verif = false;
                 }
             } catch (InputMismatchException error) {
-                System.out.println("Digite um nome valido.");
+                System.out.println("[ERRO] Digite um nome valido.");
                 ler.next();
             }
         }
@@ -96,12 +116,12 @@ public class ConsultaAgendada {
     public void setNomeMedico(String m) {
         try {
             if (m.length() < 3) {
-                System.out.println("Nome invalido.");
+                System.out.println("[ERRO] Nome invalido.");
             } else {
                 this.nomeMedico = m;
             }
         } catch (InputMismatchException error) {
-            System.out.println("Digite um nome valido.");
+            System.out.println("[ERRO] Digite um nome valido.");
         }
     }
 
@@ -114,13 +134,13 @@ public class ConsultaAgendada {
                 System.out.print("Digite o nome do medico: ");
                 medico = ler.nextLine();
                 if (medico.length() < 3) {
-                    System.out.println("Nome invalido.");
+                    System.out.println("[ERRO] Nome invalido.");
                 } else {
                     this.nomeMedico = medico;
                     verif = false;
                 }
             } catch (InputMismatchException error) {
-                System.out.println("Digite um nome valido.");
+                System.out.println("[ERRO] Digite um nome valido.");
                 ler.next();
             }
         }
@@ -132,10 +152,10 @@ public class ConsultaAgendada {
     }
 
     public String getData() {
-        return data.getData1();
+        return data.getData();
     }
     public String getHora() {
-        return hora.getHora1();
+        return hora.getHorario();
     }
     public String getNomePaciente() {
         return nomePaciente;
